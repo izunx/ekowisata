@@ -22,7 +22,7 @@ ob_start();
 	<link href="<?=$url?>lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- load time -->
-	<script src="<?=$url?>lib/font-awesome/js/"></script>
+	<script src="<?=$url?>lib/time/bootstrap-clockpicker.min.js"></script>
 	<link href="<?=$url?>lib/time/bootstrap-clockpicker.min.css" rel="stylesheet">
 	
 	<!-- load custom set -->

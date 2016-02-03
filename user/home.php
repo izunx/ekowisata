@@ -25,10 +25,7 @@ while($dpaket = mysqli_fetch_array($tpaket))
 ?>
 <div class="container">
 	<div class="row">
-		<!-- <div class="col-md-4 pull-right">
-			search
-		</div> -->
-		<div class="col-md-8 pull-left">
+		<div class="col-md-8">
 			<?php
 			$col = count($r) > 1 ? 6 : 12;
 			foreach ($r as $k => $paket)
@@ -73,6 +70,9 @@ while($dpaket = mysqli_fetch_array($tpaket))
 				<?php
 			}
 			?>
+		</div>
+		<div class="col-md-4">
+			search
 		</div>
 		<div class="clearfix"></div>
 	</div>
