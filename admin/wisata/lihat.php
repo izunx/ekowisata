@@ -11,8 +11,8 @@
 					<th>LOKASI</th>
 					<th>TRADISI</th>
 					<th>KATEGORI</th>
-					<th>PAKET</th>
 					<th>HARGA</th>
+					<th>PAKET</th>
 					<th>AKSI</th>
 				</tr>
 				<?php

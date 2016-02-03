@@ -7,7 +7,6 @@
 				<tr>
 					<th>NO</th>
 					<th>JENIS TRANSPORTASI</th>
-					<th>KELAS</th>
 					<th>HARGA</th>
 					<th>AKASI</th>
 				</tr>
@@ -19,8 +18,7 @@
 					<tr>
 						<td><?=$no?></td>
 						<td><?=$dtransport[1]?></td>
-						<td><?=$dtransport[2] == 1 ? "Mewah" : "Ekonomi"?></td>
-						<td><?=$dtransport[3]?></td>
+						<td><?=$dtransport[2]?></td>
 						<td>
 							<a href="<?=$url?>transport/edit/<?=$dtransport[0]?>">EDIT</a>
 							<a href="<?=$url?>transport/hapus/<?=$dtransport[0]?>" onClick="return confirm('APAKAH ANDA INGIN MENGHAPUS DATA INI?')">HAPUS</a>

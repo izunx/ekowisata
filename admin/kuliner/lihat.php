@@ -8,7 +8,6 @@
 				<tr>
 					<th>No</th>
 					<th>Nama Masakan</th>
-					<th>Kelas</th>
 					<th>Harga</th>
 					<th>Aksi</th>
 				</tr>
@@ -20,8 +19,7 @@
 					<tr>
 						<td><?=$no?></td>
 						<td><?=$dkuliner[1]?></td>
-						<td><?=$dkuliner[2] == 1 ? "Mewah" : "Ekonomi"?></td>
-						<td><?=$dkuliner[3]?></td>
+						<td><?=$dkuliner[2]?></td>
 						<td>
 							<a href="<?=$url?>kuliner/edit/<?=$dkuliner[0]?>">EDIT</a>
 							<a href="<?=$url?>kuliner/hapus/<?=$dkuliner[0]?>" onClick="return confirm('APAKAH ANDA INGIN MENGHAPUS DATA INI?')">HAPUS</a>

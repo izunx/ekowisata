@@ -40,12 +40,12 @@ if (isset($_POST['update'])){
               <tr>
                 <td>LOKASI WISATA</td>
                 <td>:</td>
-                <td><input type="text" name="lk" value="<?php echo $data[2];?>" class="form-control"></td>
+                <td><textarea name="lk" value="<?php echo $data[2];?>" class="form-control"></textarea></td>
               </tr>
               <tr>
                 <td>TRADISI</td>
                 <td>:</td>
-                <td><input type="text" name="trds" value="<?php echo $data[3];?>" class="form-control"></td>
+                <td><textarea name="trds" value="<?php echo $data[3];?>" class="form-control"></textarea></td>
               </tr>
               <tr>
                 <td>KATEGORI</td>

@@ -12,58 +12,57 @@
           <tr>
             <td>LOKASI WISATA</td>
             <td>:</td>
-            <td><input type="text" name="lk" class="form-control"></td>
+            <td><textarea name="lk" class="form-control"></textarea></td>
           </tr>
           <tr>
             <td>TRADISI</td>
             <td>:</td>
-            <td><input type="text" name="trds" class="form-control"></td>
+            <td><textarea name="trds" class="form-control"></textarea></td>
           </tr>
-        </tr>
-        <tr>
-          <td>KATEGORI WISATA</td>
-          <td>:</td>
-          <td><select name="ktg" id="select" class="form-control">
-            <option>--Pilih--</option>
-            <?php
-            $tmpl= q("select * from kategori");
-            while($dt=mysqli_fetch_array($tmpl)){
-             ?>
-             <option value="<?php echo $dt['id']; ?>"><?php echo $dt['kategori']; ?></option>
-             <?php }  ?>
-           </select></td>
-         </tr>
-         <tr>
-           <td>PAKET WISATA</td>
+          <tr>
+            <td>KATEGORI WISATA</td>
+            <td>:</td>
+            <td><select name="ktg" id="select" class="form-control">
+              <option>--Pilih--</option>
+              <?php
+              $tmpl= q("select * from kategori");
+              while($dt=mysqli_fetch_array($tmpl)){
+               ?>
+               <option value="<?php echo $dt['id']; ?>"><?php echo $dt['kategori']; ?></option>
+               <?php }  ?>
+             </select></td>
+           </tr>
+           <tr>
+             <td>PAKET WISATA</td>
+             <td>:</td>
+             <td><select name="pkt" id="select" class="form-control">
+              <option>--Pilih--</option>
+              <?php
+              $tmpl= q("select * from paket");
+              while($dt=mysqli_fetch_array($tmpl)){
+               ?>
+               <option value="<?php echo $dt['id']; ?>"><?php echo $dt['nama']; ?></option>
+               <?php }  ?>
+             </select></td>
+           </tr>
+           <tr>
+            <td>HARGA WISATA</td>
+            <td>:</td>
+            <td><input type="text" name="hrg" class="form-control"></td>
+          </tr>
+          <tr>
+           <td>GAMBAR TEMPAT WISATA</td>
            <td>:</td>
-           <td><select name="pkt" id="select" class="form-control">
-            <option>--Pilih--</option>
-            <?php
-            $tmpl= q("select * from paket");
-            while($dt=mysqli_fetch_array($tmpl)){
-             ?>
-             <option value="<?php echo $dt['id']; ?>"><?php echo $dt['nama']; ?></option>
-             <?php }  ?>
-           </select></td>
+           <td><input type="file" name="foto[]" required multiple accept="image/*"></td>
          </tr>
          <tr>
-          <td>HARGA WISATA</td>
-          <td>:</td>
-          <td><input type="text" name="hrg" class="form-control"></td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><button type="submit" name="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> SIMPAN</button></td>
         </tr>
-        <tr>
-         <td>GAMBAR TEMPAT WISATA</td>
-         <td>:</td>
-         <td><input type="file" name="foto[]" required multiple accept="image/*"></td>
-       </tr>
-       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td><button type="submit" name="simpan" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i> SIMPAN</button></td>
-      </tr>
-    </table>
-  </form>
-</div>
+      </table>
+    </form>
+  </div>
 </div>
 </div>
 <?php 

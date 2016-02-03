@@ -7,7 +7,6 @@ $dedit  = mysqli_fetch_row($edit);
 if (isset($_POST['update'])){
   $update = q("UPDATE kuliner SET
     nama = '$_POST[nm]',
-    kelas = '$_POST[kls]',
     harga = '$_POST[hrg]'
     where id_k = '$_GET[id]'");
   
@@ -29,29 +28,9 @@ if (isset($_POST['update'])){
               <td><input type="text" name="nm" value="<?= $dedit[1]?>" class="form-control"></td>
             </tr>
             <tr>
-              <td>Kelas</td>
-              <td>:</td>
-              <td>
-                <?php
-                if($dedit[2] == 1){
-                  ?>
-                  <input type="radio" name="kls" value="1" checked> MEWAH
-                  <input type="radio" name="kls" value="2"> EKONOMI
-                  <?php
-                }
-                else{
-                  ?>
-                  <input type="radio" name="kls" value="1"> MEWAH
-                  <input type="radio" name="kls" value="2" checked> EKONOMI
-                  <?php
-                }
-                ?>
-              </td>
-            </tr>
-            <tr>
               <td>Harga</td>
               <td>:</td>
-              <td><input type="text" name="hrg" value="<?=$dedit[3]?>" class="form-control"></td>
+              <td><input type="text" name="hrg" value="<?=$dedit[2]?>" class="form-control"></td>
             </tr>
             <tr>
               <td>&nbsp;</td>

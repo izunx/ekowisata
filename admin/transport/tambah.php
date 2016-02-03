@@ -10,14 +10,6 @@
             <td><input type="text" name="nm" class="form-control"></td>
           </tr>
           <tr>
-            <td>KELAS</td>
-            <td>:</td>
-            <td>
-              <input type="radio" name="kls" value="1"> MEWAH
-              <input type="radio" name="kls" value="2"> EKONOMI
-            </td>
-          </tr>
-          <tr>
             <td>HARGA</td>
             <td>:</td>
             <td><input type="text" name="hrg" class="form-control"></td>
@@ -35,9 +27,8 @@
 <?php
 if(isset($_POST['simpan'])){
   $nm = $_POST['nm'];
-  $k = $_POST['kls'];
   $h = $_POST['hrg'];
-  $tambah = q("insert into transport (nama, kelas, harga) values ('$nm','$k','$h')");
+  $tambah = q("insert into transport (nama, harga) values ('$nm','$h')");
 
   header("Location: ".$url."transport/lihat");
 
