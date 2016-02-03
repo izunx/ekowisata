@@ -17,8 +17,12 @@ ob_start();
 	<link href="<?=$url?>lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?=$url?>lib/bootstrap/css/bootstrap.css" rel="stylesheet">
 
+	<!-- font awesome -->
+	<link href="<?=$url?>lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="<?=$url?>lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 	<!-- load time -->
-	<script src="<?=$url?>lib/time/bootstrap-clockpicker.min.js"></script>
+	<script src="<?=$url?>lib/font-awesome/js/"></script>
 	<link href="<?=$url?>lib/time/bootstrap-clockpicker.min.css" rel="stylesheet">
 	
 	<!-- load custom set -->

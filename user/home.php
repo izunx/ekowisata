@@ -51,7 +51,7 @@ while($dpaket = mysqli_fetch_array($tpaket))
 										      <img src="<?php echo $gambar['gambar'];?>" alt="Chania">
 										      <div class="carousel-caption judul_wisata">
 										        <h3><?php echo strtoupper($gambar['nama_wisata']); ?></h3>
-										        <p><?php echo $gambar['lokasi_wisata'].' - Rp. '.number_format($gambar['harga'], 0, '', '.'); ?></p>
+										        <p><i class="fa fa-map-marker"></i> <?php echo ucfirst($gambar['lokasi_wisata']).' - Rp. '.number_format($gambar['harga'], 0, '', '.'); ?></p>
 										      </div>
 										    </div>
 												<?php
