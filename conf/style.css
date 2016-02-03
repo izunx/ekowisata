@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.gambar {
+  padding-right: 0;
+  padding-left: 0;
+}
+.judul_wisata {
+  background: rgba(0, 0, 0, 0.45);
+}
