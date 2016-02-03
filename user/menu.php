@@ -12,7 +12,6 @@
 			</div>
 			<div id="n" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="<?=$url?>daftar" data-toggle="tooltip" data-placement="bottom" title="PAKET WISATA"><i class="glyphicon glyphicon-envelope"></i>  PEMESANAN WISATA</a></li>
 					<li><a href="<?=$url?>profil" data-toggle="tooltip" data-placement="bottom" title="PROFIL"><i class="glyphicon glyphicon-map-marker"></i>  TEMPAT WISATA</b></a></li>
 					<li><a href="<?=$url?>galery" data-toggle="tooltip" data-placement="bottom" title="GALERY"><i class="glyphicon glyphicon-picture"></i>  GALERY</a></li>
 				</ul>

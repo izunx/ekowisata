@@ -270,6 +270,7 @@ if(isset($_GET['mod'])){
 
 			
 		}
+		include("user/footer.php");
 	}
 }
 else {

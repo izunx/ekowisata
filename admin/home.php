@@ -6,9 +6,3 @@
 		</div>
 	</div>
 </div>
-</div>
-<footer class="footer">
-	<div class="container">
-		<p class="text-muted">&#169; Copyright by Teknik Informatika, UMK. Powered by <a href="#">EKOWISATA BERBASIS MASYARAKAT</a></p>
-	</div>
-</footer>

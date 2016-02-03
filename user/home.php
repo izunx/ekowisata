@@ -11,13 +11,13 @@ while($dpaket = mysqli_fetch_array($tpaket))
 			if(!empty($dgambar))
 			{
 				$r[$dpaket['id']][$dwisata['nama']][] = array(
-																									'id_paket'      => $dpaket['id'],
-																									'nama_paket'    => $dpaket['nama'],
-																									'nama_wisata'   => $dwisata['nama'],
-																									'lokasi_wisata' => $dwisata['lokasi'],
-																									'harga'         => $dwisata['harga'],
-																									'gambar'        => $dgambar['gmbr']
-																									);
+					'id_paket'      => $dpaket['id'],
+					'nama_paket'    => $dpaket['nama'],
+					'nama_wisata'   => $dwisata['nama'],
+					'lokasi_wisata' => $dwisata['lokasi'],
+					'harga'         => $dwisata['harga'],
+					'gambar'        => $dgambar['gmbr']
+					);
 			}
 		}
 	}
@@ -25,9 +25,9 @@ while($dpaket = mysqli_fetch_array($tpaket))
 ?>
 <div class="container">
 	<div class="row">
-		<div class="col-md-4 pull-right">
+		<!-- <div class="col-md-4 pull-right">
 			search
-		</div>
+		</div> -->
 		<div class="col-md-8 pull-left">
 			<?php
 			$col = count($r) > 1 ? 6 : 12;
@@ -37,7 +37,7 @@ while($dpaket = mysqli_fetch_array($tpaket))
 				<div class="col-md-<?php echo $col; ?> gambar">
 					<a href="<?php echo $url; ?>paket/lihat/<?php echo $k; ?>">
 						<div class="panel panel-default">
-		  				<div class="panel-body">
+							<div class="panel-body">
 								<div id="myCarousel" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner" role="listbox">
 										<?php
@@ -48,18 +48,18 @@ while($dpaket = mysqli_fetch_array($tpaket))
 											{
 												?>
 												<div class="item <?php echo $no == 0 ? 'active' : ''; ?>">
-										      <img src="<?php echo $gambar['gambar'];?>" alt="Chania">
-										      <div class="carousel-caption judul_wisata">
-										        <h3><?php echo strtoupper($gambar['nama_wisata']); ?></h3>
-										        <p><i class="fa fa-map-marker"></i> <?php echo ucfirst($gambar['lokasi_wisata']).' - Rp. '.number_format($gambar['harga'], 0, '', '.'); ?></p>
-										      </div>
-										    </div>
+													<img src="<?php echo $gambar['gambar'];?>" alt="Chania">
+													<div class="carousel-caption judul_wisata">
+														<h3><?php echo strtoupper($gambar['nama_wisata']); ?></h3>
+														<p><i class="fa fa-map-marker"></i> <?php echo ucfirst($gambar['lokasi_wisata']).' - Rp. '.number_format($gambar['harga'], 0, '', '.'); ?></p>
+													</div>
+												</div>
 												<?php
 												$no++;
 											}
 										}
 										?>
-								  </div>
+									</div>
 								</div>		
 							</div>
 							<div class="panel-footer">
