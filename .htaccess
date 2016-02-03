@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} -f [OR]
+RewriteCond %{SCRIPT_FILENAME} -d
+
+RewriteRule ^.*$ - [S=84]
+
+RewriteRule ^([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)$ index.php?mod=$1&act=$2&id=$3 [QSA,NC]
+RewriteRule ^([a-zA-Z0-9-_]+)/([a-zA-Z0-9-_]+)$ index.php?mod=$1&act=$2 [QSA,NC]
+RewriteRule ^([a-zA-Z0-9-_]+)$ index.php?mod=$1 [QSA,NC]
+RewriteRule ^$ index.php [QSA,NC]
+</ifModule>
