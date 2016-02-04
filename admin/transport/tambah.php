@@ -7,12 +7,12 @@
           <tr>
             <td>JENIS TRANSPORTASI</td>
             <td>:</td>
-            <td><input type="text" name="nm" class="form-control"></td>
+            <td><input type="text" name="nm" class="form-control" required></td>
           </tr>
           <tr>
             <td>HARGA</td>
             <td>:</td>
-            <td><input type="text" name="hrg" class="form-control"></td>
+            <td><input type="text" name="hrg" class="form-control" required></td>
           </tr>
           <tr>
             <td>&nbsp;</td>

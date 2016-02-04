@@ -32,49 +32,54 @@ while($dpaket = mysqli_fetch_array($tpaket))
 			{
 				?>
 				<div class="col-md-<?php echo $col; ?> gambar">
-					<a href="<?php echo $url; ?>paket/lihat/<?php echo $k; ?>">
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<div id="myCarousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner" role="listbox">
-										<?php
-										foreach ($paket as $wisata)
+					<!-- <a href="<?php echo $url; ?>paket/lihat/<?php echo $k; ?>"> -->
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div id="myCarousel" class="carousel slide" data-ride="carousel">
+								<div class="carousel-inner" role="listbox">
+									<?php
+									$no = 0;
+									foreach ($paket as $wisata)
+									{
+										foreach ($wisata as $gambar)
 										{
-											$no = 0;
-											foreach ($wisata as $gambar)
-											{
-												?>
-												<div class="item <?php echo $no == 0 ? 'active' : ''; ?>">
-													<img src="<?php echo $gambar['gambar'];?>" alt="Chania">
-													<div class="carousel-caption judul_wisata">
-														<h3><?php echo strtoupper($gambar['nama_wisata']); ?></h3>
-														<p><i class="fa fa-map-marker"></i> <?php echo ucfirst($gambar['lokasi_wisata']).' - Rp. '.number_format($gambar['harga'], 0, '', '.'); ?></p>
-													</div>
+											?>
+											<div class="item <?php echo $no == 0 ? 'active' : ''; ?>">
+												<img src="<?php echo $gambar['gambar'];?>" alt="<?php echo strtoupper($gambar['nama_wisata']); ?>" class="img-responsive">
+												<div class="carousel-caption judul_wisata">
+													<h3><?php echo strtoupper($gambar['nama_wisata']); ?></h3>
+													<p><i class="fa fa-map-marker"></i> <?php echo ucfirst($gambar['lokasi_wisata']).' - Rp. '.number_format($gambar['harga'], 0, '', '.'); ?></p>
 												</div>
-												<?php
-												$no++;
-											}
+											</div>
+											<?php
+											$no++;
 										}
-										?>
-									</div>
-								</div>		
-							</div>
-							<div class="panel-footer">
-								<?php
-								echo 'Paket :'.$k;
-								?>
-							</div>
+									}
+									?>
+								</div>
+							</div>		
 						</div>
-					</a>			
-				</div>
-				<?php
-			}
-			?>
-		</div>
-		<div class="col-md-4">
-			search
-		</div>
-		<div class="clearfix"></div>
+						<div class="panel-footer">
+							<?php
+							echo 'Paket :'.$k;
+							?>
+							<div class="pull-right">
+								<a href="<?php echo $url; ?>paket/detail/<?php echo $k; ?>" class="btn btn-primary"> Detail</a>
+								<a href="<?php echo $url; ?>paket/pesan/<?php echo $k; ?>" class="btn btn-primary"> Pesan Sekarang</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</a>			
+			</div>
+			<?php
+		}
+		?>
 	</div>
+	<div class="col-md-4">
+		<?php include('user/right_side.php'); ?>
+	</div>
+	<div class="clearfix"></div>
+</div>
 </div>
 

@@ -18,7 +18,7 @@ $data = mysqli_fetch_row($tampil);
 					<tr>
 						<td>GAMBAR TEMPAT WISATA</td>
 						<td>:</td>
-						<td><input type="file" name="foto"></td>
+						<td><input type="file" name="foto" required></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>

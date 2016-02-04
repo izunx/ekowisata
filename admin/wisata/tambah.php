@@ -7,30 +7,32 @@
           <tr>
             <td>NAMA WISATA</td>
             <td>:</td>
-            <td><input type="text" name="nm" class="form-control"></td>
+            <td><input type="text" name="nm" class="form-control" required></td>
           </tr>
           <tr>
             <td>LOKASI WISATA</td>
             <td>:</td>
-            <td><textarea name="lk" class="form-control"></textarea></td>
+            <td><textarea name="lk" class="form-control" required></textarea></td>
           </tr>
           <tr>
             <td>TRADISI</td>
             <td>:</td>
-            <td><textarea name="trds" class="form-control"></textarea></td>
+            <td><textarea name="trds" class="form-control" required></textarea></td>
           </tr>
           <tr>
             <td>KATEGORI WISATA</td>
             <td>:</td>
-            <td><select name="ktg" id="select" class="form-control">
-              <option>--Pilih--</option>
-              <?php
-              $tmpl= q("select * from kategori");
-              while($dt=mysqli_fetch_array($tmpl)){
-               ?>
-               <option value="<?php echo $dt['id']; ?>"><?php echo $dt['kategori']; ?></option>
-               <?php }  ?>
-             </select></td>
+            <td>
+              <select name="ktg" id="select" class="form-control">
+                <option>--Pilih--</option>
+                <?php
+                $tmpl= q("select * from kategori");
+                while($dt=mysqli_fetch_array($tmpl)){
+                 ?>
+                 <option value="<?php echo $dt['id']; ?>"><?php echo $dt['kategori']; ?></option>
+                 <?php }  ?>
+               </select>
+             </td>
            </tr>
            <tr>
              <td>PAKET WISATA</td>
@@ -48,7 +50,7 @@
            <tr>
             <td>HARGA WISATA</td>
             <td>:</td>
-            <td><input type="text" name="hrg" class="form-control"></td>
+            <td><input type="text" name="hrg" class="form-control" required></td>
           </tr>
           <tr>
            <td>GAMBAR TEMPAT WISATA</td>

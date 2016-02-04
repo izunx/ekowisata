@@ -237,7 +237,7 @@ if(isset($_GET['mod'])){
 				include("error.php");
 				break;
 			}
-
+			include("user/footer.php");
 		}
 
 		else{
@@ -260,8 +260,18 @@ if(isset($_GET['mod'])){
 			include("user/customer.php");
 			break;
 
-			case 'profil':
-			include("user/hapus.php");
+			case 'paket':
+			if(isset($_GET['act'])){
+				switch ($_GET['act']) {
+					case 'detail':
+					include("user/paket/lihat.php");
+					break;
+
+					default:
+					include("error.php");
+					break;
+				}
+			}
 			break;
 
 			default:

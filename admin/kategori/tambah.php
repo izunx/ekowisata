@@ -7,7 +7,7 @@
           <tr>
             <td>KATEGORI</td>
             <td>:</td>
-            <td><input type="text" name="ktg" class="form-control"></td>
+            <td><input type="text" name="ktg" class="form-control" required></td>
           </tr>
           <tr>
             <td>&nbsp;</td>

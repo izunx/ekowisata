@@ -17,12 +17,12 @@ if(isset($_POST['simpan'])){
          <tr>
            <td>NAMA KERAJINAN</td>
            <td>:</td>
-           <td><input type="text" name="nm" class="form-control"></td>
+           <td><input type="text" name="nm" class="form-control" required></td>
          </tr>
          <tr>
           <td>TEMPAT WISATA</td>
           <td>:</td>
-          <td><select name="id_w" id="select" class="form-control">
+          <td><select name="id_w" id="select" class="form-control" required>
             <option>--Pilih--</option>
             <?php
             $tmpl= q("select * from wisata");

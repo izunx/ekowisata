@@ -7,7 +7,7 @@
           <tr>
             <td>NAMA PAKET</td>
             <td>:</td>
-            <td><input type="text" name="pkt" class="form-control"></td>
+            <td><input type="text" name="pkt" class="form-control" required></td>
           </tr>
           <tr>
             <td>&nbsp;</td>
