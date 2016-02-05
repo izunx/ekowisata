@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 03 Feb 2016 pada 17.06
+-- Generation Time: 05 Feb 2016 pada 02.32
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -29,10 +29,9 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `custemer` (
 `id` int(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `jk` int(1) NOT NULL,
-  `tlp` varchar(20) NOT NULL,
-  `alamat` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `almt` varchar(20) NOT NULL,
+  `tlp` text NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -44,16 +43,32 @@ CREATE TABLE IF NOT EXISTS `gmbr` (
 `id` int(30) NOT NULL,
   `gmbr` varchar(50) NOT NULL,
   `id_w` varchar(30) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=98 ;
 
 --
 -- Dumping data untuk tabel `gmbr`
 --
 
 INSERT INTO `gmbr` (`id`, `gmbr`, `id_w`) VALUES
-(71, 'img/galery/2/galery20160129140109.jpg', '2'),
-(72, 'img/galery/2/galery20160129140118.jpg', '2'),
-(73, 'img/galery/1/galery20160203170606.jpg', '1');
+(77, 'img/galery/5/galery20160205021836.jpg', '5'),
+(78, 'img/galery/5/galery20160205021849.jpg', '5'),
+(79, 'img/galery/7/galery20160205022826.jpg', '7'),
+(80, 'img/galery/1/galery20160204025339.jpg', '1'),
+(81, 'img/galery/1/galery20160204025356.jpg', '1'),
+(82, 'img/galery/1/galery20160204025407.jpg', '1'),
+(83, 'img/galery/2/galery20160205020216.jpg', '2'),
+(84, 'img/galery/2/galery20160205020232.jpg', '2'),
+(85, 'img/galery/2/galery20160205020335.jpg', '2'),
+(86, 'img/galery/2/galery20160205020345.jpg', '2'),
+(87, 'img/galery/11/galery20160205015632.jpg', '11'),
+(89, 'img/galery/11/galery20160205015610.jpg', '11'),
+(90, 'img/galery/11/galery20160205015545.jpg', '11'),
+(91, 'img/galery/11/galery20160205015527.jpg', '11'),
+(92, 'img/galery/12/galery20160205015700.jpg', '12'),
+(93, 'img/galery/12/galery20160205015711.JPG', '12'),
+(95, 'img/galery/12/galery3.JPG', '12'),
+(96, 'img/galery/12/galery4.jpg', '12'),
+(97, 'img/galery/5/galery20160205021859.jpg', '5');
 
 -- --------------------------------------------------------
 
@@ -103,7 +118,6 @@ INSERT INTO `kerajinan` (`id`, `nama`, `id_w`) VALUES
 CREATE TABLE IF NOT EXISTS `kuliner` (
 `id_k` int(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `kelas` varchar(20) NOT NULL,
   `harga` varchar(100) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
@@ -111,21 +125,21 @@ CREATE TABLE IF NOT EXISTS `kuliner` (
 -- Dumping data untuk tabel `kuliner`
 --
 
-INSERT INTO `kuliner` (`id_k`, `nama`, `kelas`, `harga`) VALUES
-(1, 'pidang serani', '2', '50000'),
-(2, 'horok-horok', '2', '20000'),
-(3, 'tempong', '2', '10000'),
-(4, 'rondo royal', '2', '10000'),
-(5, 'soto jepara', '2', '15000'),
-(6, 'sup undang ', '2', '15000'),
-(7, 'sup pangsit jepara', '2', '20000'),
-(8, 'sate kikil', '2', '20000'),
-(9, 'urap', '2', '10000'),
-(10, 'kopi dapur kuat', '2', '10000'),
-(11, 'adon-adon coro', '2', '15000'),
-(12, 'es gempol / pleret', '2', '10000'),
-(13, 'es dawet / cendal', '2', '10000'),
-(14, 'dawet ayu rumput laut', '2', '20000');
+INSERT INTO `kuliner` (`id_k`, `nama`, `harga`) VALUES
+(1, 'pidang serani', '50000'),
+(2, 'horok-horok', '20000'),
+(3, 'tempong', '10000'),
+(4, 'rondo royal', '10000'),
+(5, 'soto jepara', '15000'),
+(6, 'sup undang ', '15000'),
+(7, 'sup pangsit jepara', '20000'),
+(8, 'sate kikil', '20000'),
+(9, 'urap', '10000'),
+(10, 'kopi dapur kuat', '10000'),
+(11, 'adon-adon coro', '15000'),
+(12, 'es gempol / pleret', '10000'),
+(13, 'es dawet / cendal', '13000'),
+(14, 'dawet ayu rumput laut', '20000');
 
 -- --------------------------------------------------------
 
@@ -136,7 +150,7 @@ INSERT INTO `kuliner` (`id_k`, `nama`, `kelas`, `harga`) VALUES
 CREATE TABLE IF NOT EXISTS `paket` (
 `id` int(10) NOT NULL,
   `nama` varchar(30) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data untuk tabel `paket`
@@ -145,7 +159,8 @@ CREATE TABLE IF NOT EXISTS `paket` (
 INSERT INTO `paket` (`id`, `nama`) VALUES
 (1, 'A'),
 (2, 'B'),
-(3, 'C');
+(3, 'C'),
+(4, 'D');
 
 -- --------------------------------------------------------
 
@@ -154,12 +169,11 @@ INSERT INTO `paket` (`id`, `nama`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `pemesanan` (
-`id_p` int(20) NOT NULL,
+`id` int(20) NOT NULL,
   `id_c` varchar(30) NOT NULL,
   `id_w` varchar(30) NOT NULL,
-  `id` varchar(30) NOT NULL,
   `id_t` varchar(30) NOT NULL,
-  `id_k` varchar(30) NOT NULL,
+  `id_p` varchar(30) NOT NULL,
   `tgl` date NOT NULL,
   `total` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -174,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `penginapan` (
 `id_t` int(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `harga` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data untuk tabel `penginapan`
@@ -194,16 +208,16 @@ INSERT INTO `penginapan` (`id_t`, `nama`, `harga`) VALUES
 CREATE TABLE IF NOT EXISTS `transport` (
 `id_t` int(30) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `kelas` int(1) NOT NULL,
   `harga` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data untuk tabel `transport`
 --
 
-INSERT INTO `transport` (`id_t`, `nama`, `kelas`, `harga`) VALUES
-(1, 'mobil', 1, '300000');
+INSERT INTO `transport` (`id_t`, `nama`, `harga`) VALUES
+(1, 'mobil', '300000'),
+(2, 'motor', '50000');
 
 -- --------------------------------------------------------
 
@@ -240,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `wisata` (
   `harga` varchar(100) NOT NULL,
   `hits` int(30) NOT NULL,
   `paket` int(20) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data untuk tabel `wisata`
@@ -248,14 +262,14 @@ CREATE TABLE IF NOT EXISTS `wisata` (
 
 INSERT INTO `wisata` (`id_w`, `nama`, `lokasi`, `tradisi`, `kategori`, `harga`, `hits`, `paket`) VALUES
 (1, 'pantai kartini', 'jepara', 'kupatan ', '1', '30000', 0, 1),
-(2, 'pantai bandengan', 'jepara', 'qwerty', '1', '60000', 0, 1),
-(5, 'museum R.A kartini', 'alun-alun jepara', '', '4', '100000', 0, 2),
+(2, 'pantai bandengan', '', '', '1', '60000', 0, 3),
+(5, 'museum R.A kartini', 'Alun-alun  Kota Jepara', 'Perang Obor', '4', '100000', 0, 4),
 (6, 'air terjun songgolangit', 'Ds. Bucu, Kec. Kembang', '', '', '120000', 0, 0),
-(7, 'benteng portugis', 'bangsri', '', '4', '110000', 0, 2),
+(7, 'benteng portugis', '', '', '4', '110000', 0, 4),
 (8, 'pantai teluk awur', 'jepara', '', '', '20000', 0, 0),
-(9, 'pulau mandalika', 'bangsri', '', '', '100000', 0, 0),
 (10, 'pantai bondo', 'Ds. donorejo', '', '', '120000', 0, 0),
-(11, 'pulau panjang', 'jepara', '', '', '50000', 0, 0);
+(11, 'DESA WISATA TEMPUR', 'Desa di Kecamatan Keling Jepara', 'Sedekah bumi Desa Tempur', '3', '100000', 0, 1),
+(12, 'DESA WISATA PLAJAN', 'Desa Plajan di Kecamatan Pakis Aji Jepara', 'Wayang Kulit, Emprak, Reog, danTerbang Telon', '3', '200000', 0, 2);
 
 --
 -- Indexes for dumped tables
@@ -301,7 +315,7 @@ ALTER TABLE `paket`
 -- Indexes for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
- ADD PRIMARY KEY (`id_p`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `penginapan`
@@ -335,12 +349,12 @@ ALTER TABLE `wisata`
 -- AUTO_INCREMENT for table `custemer`
 --
 ALTER TABLE `custemer`
-MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `gmbr`
 --
 ALTER TABLE `gmbr`
-MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=74;
+MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=98;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
@@ -360,22 +374,22 @@ MODIFY `id_k` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 -- AUTO_INCREMENT for table `paket`
 --
 ALTER TABLE `paket`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-MODIFY `id_p` int(20) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `penginapan`
 --
 ALTER TABLE `penginapan`
-MODIFY `id_t` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_t` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `transport`
 --
 ALTER TABLE `transport`
-MODIFY `id_t` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id_t` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --
@@ -385,7 +399,7 @@ MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `wisata`
 --
 ALTER TABLE `wisata`
-MODIFY `id_w` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `id_w` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
