@@ -70,7 +70,7 @@ while($dpaket = mysqli_fetch_array($tpaket))
 							<div class="clearfix"></div>
 						</div>
 					</div>
-				</a>			
+				<!-- </a>			 -->
 			</div>
 			<?php
 		}
