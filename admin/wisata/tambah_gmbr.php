@@ -9,7 +9,7 @@ $data = mysqli_fetch_row($tampil);
 			<h3>TAMBAH GAMBAR WISATA</h3>
 			<form name="" method="post" action="" enctype="multipart/form-data" role="form">
 				<table width="100%" border="0" id="kolom">
-					<input type="text" name="id_w" value="<?php echo $id_w;?>"hidden></td>
+					<input type="text" name="id_w" value="<?php echo $id_w;?>"hidden>
 					<tr>
 						<td>NAMA TEMPAT WISATA</td>
 						<td>:</td>
