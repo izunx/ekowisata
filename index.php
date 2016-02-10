@@ -25,6 +25,10 @@ ob_start();
 	<script src="<?=$url?>lib/time/bootstrap-clockpicker.min.js"></script>
 	<link href="<?=$url?>lib/time/bootstrap-clockpicker.min.css" rel="stylesheet">
 	
+	<!-- load datepicker -->
+	<script src="<?=$url?>lib/bootstrap-date/js/bootstrap-datepicker.min.js"></script>
+	<link href="<?=$url?>lib/bootstrap-date/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
 	<!-- load custom set -->
 	<script src="<?=$url?>lib/bootstrap.fileinput.js"></script>
 	<script src="<?=$url?>lib/bootstrap.validator.js"></script>
@@ -35,6 +39,11 @@ ob_start();
 
 			$('.waktu').clockpicker({
 				autoclose: true
+			});
+
+			$('.tanggal').datepicker({
+				format : 'yyyy-mm-dd',
+				startDate: 'today'
 			});
 		});
 	</script>

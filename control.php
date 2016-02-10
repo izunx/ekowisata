@@ -267,6 +267,14 @@ if(isset($_GET['mod'])){
 					include("user/paket/lihat.php");
 					break;
 
+					case 'pesan':
+					include("user/paket/pesan.php");
+					break;
+
+					case 'view':
+					include("user/paket/view.php");
+					break;
+
 					default:
 					include("error.php");
 					break;

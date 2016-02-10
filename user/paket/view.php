@@ -3,8 +3,7 @@ $id = @intval($_GET['id']);
 ?>
 <div class="container">
 	<!-- <div class="panel panel-default"> -->
-	<div class="panel-body">
-		
+	<div class="col-md-8">
 		<h3>DATA PEMESAN</h3>
 		<?php
 		$tcustemer = q("select * from custemer where id = {$id}");
