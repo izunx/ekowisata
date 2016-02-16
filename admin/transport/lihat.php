@@ -7,11 +7,15 @@
 				<tr>
 					<th>NO</th>
 					<th>JENIS TRANSPORTASI</th>
+					<th>FASILITAS</th>
 					<th>HARGA</th>
+					<th>PAKET</th>
 					<th>AKASI</th>
 				</tr>
 				<?php
-				$ttransport = q("select * from transport");
+				$ttransport = q("SELECT t.id_t, t.nama, t.fasilitas, t.harga, p.nama 
+					FROM transport as t 
+					LEFT JOIN paket as p ON(t.paket=p.id)");
 				$no = 1;
 				while($dtransport = mysqli_fetch_row($ttransport)){
 					?>
@@ -19,6 +23,8 @@
 						<td><?=$no?></td>
 						<td><?=$dtransport[1]?></td>
 						<td><?=$dtransport[2]?></td>
+						<td><?=$dtransport[3]?></td>
+						<td><?=$dtransport[4]?></td>
 						<td>
 							<a href="<?=$url?>transport/edit/<?=$dtransport[0]?>">EDIT</a>
 							<a href="<?=$url?>transport/hapus/<?=$dtransport[0]?>" onClick="return confirm('APAKAH ANDA INGIN MENGHAPUS DATA INI?')">HAPUS</a>

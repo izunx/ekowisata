@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 05 Feb 2016 pada 02.32
+-- Generation Time: 16 Feb 2016 pada 15.11
 -- Versi Server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -29,9 +29,18 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `custemer` (
 `id` int(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `almt` varchar(20) NOT NULL,
-  `tlp` text NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `tlp` varchar(20) NOT NULL,
+  `alm` varchar(30) NOT NULL,
+  `tgl` date NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data untuk tabel `custemer`
+--
+
+INSERT INTO `custemer` (`id`, `nama`, `tlp`, `alm`, `tgl`) VALUES
+(1, 'apip', '2434', 'vmv', '2016-02-15'),
+(2, 'papi', '111', 'safcs', '2016-02-16');
 
 -- --------------------------------------------------------
 
@@ -43,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `gmbr` (
 `id` int(30) NOT NULL,
   `gmbr` varchar(50) NOT NULL,
   `id_w` varchar(30) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=98 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100 ;
 
 --
 -- Dumping data untuk tabel `gmbr`
@@ -68,7 +77,9 @@ INSERT INTO `gmbr` (`id`, `gmbr`, `id_w`) VALUES
 (93, 'img/galery/12/galery20160205015711.JPG', '12'),
 (95, 'img/galery/12/galery3.JPG', '12'),
 (96, 'img/galery/12/galery4.jpg', '12'),
-(97, 'img/galery/5/galery20160205021859.jpg', '5');
+(97, 'img/galery/5/galery20160205021859.jpg', '5'),
+(98, 'img/galery/10/galery20160215073224.jpg', '10'),
+(99, 'img/galery/10/galery20160215073237.jpg', '10');
 
 -- --------------------------------------------------------
 
@@ -187,17 +198,17 @@ CREATE TABLE IF NOT EXISTS `pemesanan` (
 CREATE TABLE IF NOT EXISTS `penginapan` (
 `id_t` int(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `harga` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `fasilitas` varchar(100) NOT NULL,
+  `harga` varchar(100) NOT NULL,
+  `paket` int(20) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data untuk tabel `penginapan`
 --
 
-INSERT INTO `penginapan` (`id_t`, `nama`, `harga`) VALUES
-(1, 'HOTEL', '400000'),
-(2, 'HOME STAY', '50000'),
-(3, 'TENDA KEMPING', '50000');
+INSERT INTO `penginapan` (`id_t`, `nama`, `fasilitas`, `harga`, `paket`) VALUES
+(2, 'HOME STAY', 'kamar 3, kamar mandi 2, makan 3 kali sehari', '50000', 1);
 
 -- --------------------------------------------------------
 
@@ -208,16 +219,18 @@ INSERT INTO `penginapan` (`id_t`, `nama`, `harga`) VALUES
 CREATE TABLE IF NOT EXISTS `transport` (
 `id_t` int(30) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `harga` varchar(100) NOT NULL
+  `fasilitas` varchar(50) NOT NULL,
+  `harga` varchar(100) NOT NULL,
+  `paket` int(20) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data untuk tabel `transport`
 --
 
-INSERT INTO `transport` (`id_t`, `nama`, `harga`) VALUES
-(1, 'mobil', '300000'),
-(2, 'motor', '50000');
+INSERT INTO `transport` (`id_t`, `nama`, `fasilitas`, `harga`, `paket`) VALUES
+(1, 'mobil', '', '300000', 2),
+(2, 'Travel', '15 kursi, AC, Musik, LCD TV, ada bagasi', '600000', 1);
 
 -- --------------------------------------------------------
 
@@ -261,13 +274,13 @@ CREATE TABLE IF NOT EXISTS `wisata` (
 --
 
 INSERT INTO `wisata` (`id_w`, `nama`, `lokasi`, `tradisi`, `kategori`, `harga`, `hits`, `paket`) VALUES
-(1, 'pantai kartini', 'jepara', 'kupatan ', '1', '30000', 0, 1),
-(2, 'pantai bandengan', '', '', '1', '60000', 0, 3),
-(5, 'museum R.A kartini', 'Alun-alun  Kota Jepara', 'Perang Obor', '4', '100000', 0, 4),
+(1, 'Pantai Kartini', 'Desa Bulu Jepara', 'Kupatan (Lomban) ', '1', '150000', 0, 1),
+(2, 'pantai bandengan', 'Desa Bandengan Kec. Jepara Kab. Jepara', '', '1', '60000', 0, 3),
+(5, 'Museum R.A Kartini', 'Alun-alun  Kota Jepara', 'Perang Obor', '4', '100000', 0, 4),
 (6, 'air terjun songgolangit', 'Ds. Bucu, Kec. Kembang', '', '', '120000', 0, 0),
 (7, 'benteng portugis', '', '', '4', '110000', 0, 4),
 (8, 'pantai teluk awur', 'jepara', '', '', '20000', 0, 0),
-(10, 'pantai bondo', 'Ds. donorejo', '', '', '120000', 0, 0),
+(10, 'pantai bondo', 'Ds. donorejo Kec. Bangsri Kab. Jepara', '', '4', '120000', 0, 2),
 (11, 'DESA WISATA TEMPUR', 'Desa di Kecamatan Keling Jepara', 'Sedekah bumi Desa Tempur', '3', '100000', 0, 1),
 (12, 'DESA WISATA PLAJAN', 'Desa Plajan di Kecamatan Pakis Aji Jepara', 'Wayang Kulit, Emprak, Reog, danTerbang Telon', '3', '200000', 0, 2);
 
@@ -349,12 +362,12 @@ ALTER TABLE `wisata`
 -- AUTO_INCREMENT for table `custemer`
 --
 ALTER TABLE `custemer`
-MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `gmbr`
 --
 ALTER TABLE `gmbr`
-MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=98;
+MODIFY `id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
 --
 -- AUTO_INCREMENT for table `kategori`
 --
@@ -384,7 +397,7 @@ MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `penginapan`
 --
 ALTER TABLE `penginapan`
-MODIFY `id_t` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id_t` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `transport`
 --
