@@ -35,9 +35,10 @@ $id = @intval($_GET['id']);
 				?>
 
 				<!-- load penginapan -->
+				
+				<h3 class="text-center">PENGINAPAN</h3>
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<h3 class="text-center">PENGINAPAN</h3>
 						<?php
 						$tpenginapan = q("select * from penginapan where paket = {$id}");
 						$no = 1;
@@ -62,6 +63,7 @@ $id = @intval($_GET['id']);
 							</table>
 							<?php
 							$no++;
+							$p = $dpenginapan['harga'];
 						}
 						?>
 					</div>
@@ -69,9 +71,9 @@ $id = @intval($_GET['id']);
 
 				<!-- load transportasi -->
 
+				<h3 class="text-center">TRANSPORTASI</h3>
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<h3 class="text-center">TRANSPORTASI</h3>
 						<?php
 						$ttransport = q("select * from transport where paket = {$id}");
 						$no = 1;
@@ -96,13 +98,23 @@ $id = @intval($_GET['id']);
 							</table>
 							<?php
 							$no++;
+							$t = $dtransport['harga'];
 						}
 						?>
 					</div>
 				</div>
-
+				<?php 
+				$ttl = $p + $t;
+				$akhr = $ttl + $hrg;
+				$pkt = $akhr * 15;
+				?>
 				<div class="well">
-					Jumlah harga : <b>Rp.&nbsp;<?php echo number_format($hrg, 0, '', '.'); ?></b>  
+					Jumlah harga : <b>Rp.&nbsp;<?php echo number_format($akhr, 0, '', '.'); ?> /Orang</b>
+					<a href="<?php echo $url; ?>paket/pesan/<?php echo $id; ?>" class="btn btn-primary pull-right"> Pesan Sekarang</a>
+					<div class="clearfix"></div>
+				</div>
+				<div class="well">
+					Jumlah harga : <b>Rp.&nbsp;<?php echo number_format($pkt, 0, '', '.'); ?> /Kelompok</b>
 					<a href="<?php echo $url; ?>paket/pesan/<?php echo $id; ?>" class="btn btn-primary pull-right"> Pesan Sekarang</a>
 					<div class="clearfix"></div>
 				</div>
