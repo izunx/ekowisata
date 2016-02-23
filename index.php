@@ -47,6 +47,8 @@ ob_start();
 			});
 		});
 	</script>
+
+	
 	<!-- main style -->
 	<link href="<?=$url?>conf/style.css" rel="stylesheet">
 </head>

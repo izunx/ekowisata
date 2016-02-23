@@ -1,3 +1,16 @@
+<script type="application/javascript">
+
+  function isNumberKey(evt)
+  {
+   var charCode = (evt.which) ? evt.which : event.keyCode
+   if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
+
+  return true;
+}
+
+</script>
+
 <div class="container">
   <h2>FORMULIR PEMESANAN</h2>
   <div class="panel panel-default">
@@ -11,9 +24,9 @@
             <td><input type="text" name="nm" id="textfield" class="form-control" required></td>
           </tr>
           <tr>
-            <td>No TELEPON</td>
+            <td>NO TELEPON</td>
             <td>:</td>
-            <td><input type="number" name="tlp" id="textfield" class="form-control" required></td>
+            <td><input type="text" name="tlp" id="textfield" class="form-control" onkeypress="return isNumberKey(event)" maxlength="13" required></td>
           </tr>
           <tr>
             <tr>
