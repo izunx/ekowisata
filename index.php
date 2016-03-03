@@ -56,7 +56,9 @@ ob_start();
 
 <body>
 	<?php
+	$page = ob_get_contents();
+	ob_end_clean();
 	require("control.php");
-	?>	
+	?>
 </body>
 </html>
