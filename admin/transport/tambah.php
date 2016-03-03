@@ -12,7 +12,7 @@
           <tr>
             <td>FASILITAS</td>
             <td>:</td>
-            <td><textarea name="fslts" class="form-control" required</textarea></td>
+            <td><textarea name="fslts" class="form-control" required></textarea></td>
           </tr>
           <tr>
             <td>HARGA</td>

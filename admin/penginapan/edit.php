@@ -1,6 +1,6 @@
 <?php
 $id   = $_GET['id'];
-$edit   = q("select * from penginapan where id_t='$id'");
+$edit   = q("select * from penginapan where id_p='$id'");
 $dedit  = mysqli_fetch_row($edit);
 
 
@@ -10,7 +10,7 @@ if (isset($_POST['update'])){
     fasilitas = '$_POST[fslts]',
     harga = '$_POST[hrg]',
     paket = '$_POST[pkt]'
-    where id_t = '$_GET[id]'");
+    where id_p = '$_GET[id]'");
   
   header("Location: ".$url."penginapan/lihat");
 }

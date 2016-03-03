@@ -20,7 +20,7 @@ $id = @intval($_GET['id']);
 								<div class="list-group">
 									<span class="list-group-item">NAMA WISATA : <?php echo $dwisata['nama']; ?></span>
 									<span class="list-group-item">LOKASI WISATA	: <?php echo $dwisata['lokasi']; ?></span>
-									<!-- <span class="list-group-item">TRADISI : <?php echo $dwisata['tradisi']; ?></span> -->
+									<span class="list-group-item">TRADISI : <?php echo $dwisata['tradisi']; ?></span>
 									<span class="list-group-item">TIKET MASUK	: <b>Rp. <?php echo number_format($dwisata['harga'], 0, '', '.'); ?></b></span>
 								</div>
 							</div>
@@ -62,8 +62,8 @@ $id = @intval($_GET['id']);
 								</tr>
 							</table>
 							<?php
-							$no++;
 							$p = $dpenginapan['harga'];
+							$no++;
 						}
 						?>
 					</div>
@@ -110,11 +110,6 @@ $id = @intval($_GET['id']);
 				?>
 				<div class="well">
 					Jumlah harga : <b>Rp.&nbsp;<?php echo number_format($akhr, 0, '', '.'); ?> /Orang</b>
-					<a href="<?php echo $url; ?>paket/pesan/<?php echo $id; ?>" class="btn btn-primary pull-right"> Pesan Sekarang</a>
-					<div class="clearfix"></div>
-				</div>
-				<div class="well">
-					Jumlah harga : <b>Rp.&nbsp;<?php echo number_format($pkt, 0, '', '.'); ?> /Kelompok(15 Orang)</b>
 					<a href="<?php echo $url; ?>paket/pesan/<?php echo $id; ?>" class="btn btn-primary pull-right"> Pesan Sekarang</a>
 					<div class="clearfix"></div>
 				</div>

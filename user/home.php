@@ -70,16 +70,16 @@ while($dpaket = mysqli_fetch_array($tpaket))
 							<div class="clearfix"></div>
 						</div>
 					</div>
-				<!-- </a>			 -->
-			</div>
-			<?php
-		}
-		?>
+					<!-- </a>			 -->
+				</div>
+				<?php
+			}
+			?>
+		</div>
+		<div class="col-md-4">
+			<?php include('user/right_side.php'); ?>
+		</div>
+		<div class="clearfix"></div>
 	</div>
-	<div class="col-md-4">
-		<?php include('user/right_side.php'); ?>
-	</div>
-	<div class="clearfix"></div>
-</div>
 </div>
 

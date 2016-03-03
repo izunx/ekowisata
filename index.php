@@ -43,7 +43,8 @@ ob_start();
 
 			$('.tanggal').datepicker({
 				format : 'yyyy-mm-dd',
-				startDate: 'today'
+				startDate: 'today',
+				autoclose: true
 			});
 		});
 	</script>

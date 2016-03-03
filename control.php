@@ -260,15 +260,30 @@ if(isset($_GET['mod'])){
 			include("user/customer.php");
 			break;
 
+
+
+
 			case 'paket':
 			if(isset($_GET['act'])){
 				switch ($_GET['act']) {
+					case 'pilihan':
+					include("user/paket/pilihan.php");
+					break;
+
 					case 'detail':
 					include("user/paket/lihat.php");
 					break;
 
 					case 'pesan':
 					include("user/paket/pesan.php");
+					break;
+
+					case 'view':
+					include("user/paket/view.php");
+					break;
+
+					case 'cetak':
+					include("user/paket/cetak.php");
 					break;
 
 					default:

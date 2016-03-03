@@ -14,7 +14,7 @@
 					<th>AKSI</th>
 				</tr>
 				<?php
-				$tpenginapan = q("SELECT p.id_t, p.nama, p.fasilitas, p.harga, pkt.nama 
+				$tpenginapan = q("SELECT p.id_p, p.nama, p.fasilitas, p.harga, pkt.nama 
 					FROM penginapan as p 
 					LEFT JOIN paket as pkt ON(p.paket=pkt.id)");
 				$no = 1;
