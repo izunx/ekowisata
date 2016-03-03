@@ -1,11 +1,3 @@
-
-<script type=”text/javascript”>
-	var s5_taf_parent = window.location;
-	function popup_print(){
-		window.open(‘preview.php’,’page’,’toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=0,width=750,height=600,left=50,top=50,titlebar=yes’)
-	}
-</script>
-
 <?php
 $id     = @intval($_GET['id']);
 $paket  = @intval($_GET['paket']);
@@ -57,6 +49,7 @@ $jumlah = @intval($_GET['jumlah']);
 							<?php
 							$hrg += $dwisata['harga'];
 						}
+						$hrg = @intval($hrg);
 						?>
 					</div>
 				</div>
@@ -74,7 +67,7 @@ $jumlah = @intval($_GET['jumlah']);
 						<h3 class="text-center">PENGINAPAN WISATA</h3>
 						<?php
 						$tpenginapan = q("select * from penginapan where paket = {$paket}");
-						$no = 1;
+						$p = 0;
 						while($dpenginapan = mysqli_fetch_array($tpenginapan)){
 							?>
 							<div class="col-md-12">
@@ -85,9 +78,9 @@ $jumlah = @intval($_GET['jumlah']);
 								</div>
 							</div>
 							<?php
-							$p = $dpenginapan['harga'];
-							$no++;
+							$p += $dpenginapan['harga'];
 						}
+						$p += @intval($p);
 						?>
 					</div>
 				</div>
@@ -99,7 +92,7 @@ $jumlah = @intval($_GET['jumlah']);
 						<h3 class="text-center">TRANSPORTASI</h3>
 						<?php
 						$transport = q("select * from transport where paket = {$paket}");
-						$no = 1;
+						$t = 0;
 						while($dtransport = mysqli_fetch_array($transport)){
 							?>
 							<div class="col-md-12">
@@ -110,9 +103,9 @@ $jumlah = @intval($_GET['jumlah']);
 								</div>
 							</div>
 							<?php
-							$t = $dtransport['harga'];
-							$no++;
+							$t += $dtransport['harga'];
 						}
+						$t = @intval($t);
 						?>
 					</div>
 				</div>
@@ -120,12 +113,19 @@ $jumlah = @intval($_GET['jumlah']);
 		</div>	
 		<div class="well">
 			<?php
+			$add  = '';
 			$tmbh = $p + $t;
 			$akhr = $tmbh + $hrg;
-			$ttl = $akhr * $jumlah;
+			if(!empty($jumlah))
+			{
+				$ttl = $akhr * $jumlah;
+				$add = '&jumlah='.$jumlah;
+			}else{
+				$ttl = $akhr;
+			}
 			?>
 			TOTAL PEMBELIAN : <b>Rp.&nbsp;<?php echo number_format($ttl, 0, '', '.'); ?></b>
-			<a href="<?php echo $url.'paket/view/'.$id.'?paket='.$paket.'&jumlah='.$jumlah.'&save=1'; ?>" onClick=”popup_print()”  class="btn btn-primary pull-right"> CETAK TRANSAKSI PEMBELIAN</a>
+			<a href="<?php echo $url.'paket/view/'.$id.'?paket='.$paket.$add.'&save=1'; ?>" onClick=”popup_print()”  class="btn btn-primary pull-right"> CETAK TRANSAKSI PEMBELIAN</a>
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -140,6 +140,6 @@ if(isset($_GET['save']) && $_GET['save'] == 1){
 		$simpan = q("INSERT into pemesanan(id_c, paket) values ('$id', '$paket')");
 	}
 
-	header("Location: ".$url."paket/cetak/".$id.'?paket='.$paket.'&jumlah='.$jumlah);
+	header("Location: ".$url."paket/cetak/".$id.'?paket='.$paket.$add);
 }
 ?>
