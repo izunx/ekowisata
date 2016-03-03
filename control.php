@@ -7,8 +7,11 @@ if(isset($_GET['mod'])){
 	// jika punya hak
 	if(isset($_SESSION['login'])){
 
+		echo $page;
+
 		// admin
 		if($_SESSION['login'] == 1){
+
 			include("user/header.php");
 			include("admin/menu.php");
 
@@ -243,13 +246,21 @@ if(isset($_GET['mod'])){
 		else{
 			include("error.php");
 		}
-
 	}
 
 	// tanpa hak
 	else{
+		ob_start();
 		include("user/header.php");
 		include("user/menu.php");
+		$header = ob_get_contents();
+		ob_end_clean();
+
+		if(!($mod=='paket' && @$_GET['act']=='cetak'))
+		{
+			echo $page;
+			echo $header;
+		}
 
 		switch ($mod) {
 			case 'awal':
@@ -260,12 +271,10 @@ if(isset($_GET['mod'])){
 			include("user/customer.php");
 			break;
 
-
-
-
 			case 'paket':
 			if(isset($_GET['act'])){
-				switch ($_GET['act']) {
+				$act = $_GET['act'];
+				switch ($act) {
 					case 'pilihan':
 					include("user/paket/pilihan.php");
 					break;
@@ -299,7 +308,14 @@ if(isset($_GET['mod'])){
 
 			
 		}
+		ob_start();
 		include("user/footer.php");
+		$footer = ob_get_contents();
+		ob_end_clean();
+		if(!($mod=='paket' && @$_GET['act']=='cetak'))
+		{
+			echo $footer;
+		}
 	}
 }
 else {
