@@ -84,14 +84,14 @@
     $tgl_k = $_POST['tgl_k'];
     $pilih = $_POST['pilih'];
     $jml   = @$_POST['jml'];
-    $add   = "";
+    $add   = '';
     if(!empty($jml)){
-      $add = "jumlah=".$jml;
+      $add = "&jumlah=".$jml;
     }
     $id     = mysqli_fetch_row(q("SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'ekowisata' AND   TABLE_NAME   = 'custemer'"))[0];
     $tambah = q("insert into custemer(nama, tlp, alm, tgl_m, tgl_k, status) values ('$nm','$tlp','$alm','$tgl_m', '$tgl_k', '$pilih')");
     if($tambah){
-      header("Location: ".$url."paket/view/".$id."?paket=".$ids."&".$add);
+      header("Location: ".$url."paket/view/".$id."?paket=".$ids.$add);
     }
   }
   ?>
