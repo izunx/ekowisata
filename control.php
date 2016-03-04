@@ -266,19 +266,11 @@ if(isset($_GET['mod'])){
 			case 'awal':
 			include("user/home.php");
 			break;
-			
-			case 'daftar':
-			include("user/customer.php");
-			break;
 
 			case 'paket':
 			if(isset($_GET['act'])){
 				$act = $_GET['act'];
 				switch ($act) {
-					case 'pilihan':
-					include("user/paket/pilihan.php");
-					break;
-
 					case 'detail':
 					include("user/paket/lihat.php");
 					break;
