@@ -4,6 +4,7 @@ $paket  = @intval($_GET['paket']);
 $jumlah = @intval($_GET['jumlah']);
 ?>
 <div class="container">
+	<div class="row">
 	<div class="col-md-6">
 		<div class="panel panel-default">
 			<div class="panel-body">
@@ -128,6 +129,7 @@ $jumlah = @intval($_GET['jumlah']);
 			<a href="<?php echo $url.'paket/view/'.$id.'?paket='.$paket.$add.'&save=1'; ?>" class="btn btn-primary pull-right" target="_blank"> CETAK TRANSAKSI PEMBELIAN</a>
 			<div class="clearfix"></div>
 		</div>
+	</div>
 	</div>
 </div>
 <?php
