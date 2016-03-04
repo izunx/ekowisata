@@ -1,5 +1,4 @@
 <?php
 session_start();
 $url = "//localhost/ekowisata/";
-setlocale(LC_MONETARY,"de_DE");
-?>
+date_default_timezone_set("Asia/Bangkok");

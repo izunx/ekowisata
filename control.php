@@ -1,20 +1,15 @@
 <?php
-require_once("conf/setting.php");
-
 if(isset($_GET['mod'])){
 	$mod = $_GET['mod'];
 
 	// jika punya hak
 	if(isset($_SESSION['login'])){
-
-		echo $page;
-
 		// admin
+		ob_start('ob_gzhandler');
 		if($_SESSION['login'] == 1){
 
 			include("user/header.php");
 			include("admin/menu.php");
-
 
 			switch ($mod) {
 				case 'keluar':
@@ -246,22 +241,19 @@ if(isset($_GET['mod'])){
 		else{
 			include("error.php");
 		}
+		$data['admin'] = ob_get_contents();
+		ob_end_clean();
 	}
 
 	// tanpa hak
 	else{
-		ob_start();
+		ob_start('ob_gzhandler');
 		include("user/header.php");
 		include("user/menu.php");
-		$header = ob_get_contents();
+		$data['header'] = ob_get_contents();
 		ob_end_clean();
 
-		if(!($mod=='paket' && @$_GET['act']=='cetak'))
-		{
-			echo $page;
-			echo $header;
-		}
-
+		ob_start('ob_gzhandler');
 		switch ($mod) {
 			case 'awal':
 			include("user/home.php");
@@ -270,6 +262,7 @@ if(isset($_GET['mod'])){
 			case 'paket':
 			if(isset($_GET['act'])){
 				$act = $_GET['act'];
+
 				switch ($act) {
 					case 'detail':
 					include("user/paket/lihat.php");
@@ -300,17 +293,15 @@ if(isset($_GET['mod'])){
 
 			
 		}
-		ob_start();
-		include("user/footer.php");
-		$footer = ob_get_contents();
+		$data['content'] = ob_get_contents();
 		ob_end_clean();
-		if(!($mod=='paket' && @$_GET['act']=='cetak'))
-		{
-			echo $footer;
-		}
+
+		ob_start('ob_gzhandler');
+		include("user/footer.php");
+		$data['footer'] = ob_get_contents();
+		ob_end_clean();
 	}
 }
 else {
 	header("Location: ".$url."awal");
 }
-?>

@@ -125,7 +125,7 @@ $jumlah = @intval($_GET['jumlah']);
 			}
 			?>
 			TOTAL PEMBELIAN : <b>Rp.&nbsp;<?php echo number_format($ttl, 0, '', '.'); ?></b>
-			<a href="<?php echo $url.'paket/view/'.$id.'?paket='.$paket.$add.'&save=1'; ?>" onClick=”popup_print()”  class="btn btn-primary pull-right"> CETAK TRANSAKSI PEMBELIAN</a>
+			<a href="<?php echo $url.'paket/view/'.$id.'?paket='.$paket.$add.'&save=1'; ?>" class="btn btn-primary pull-right" target="_blank"> CETAK TRANSAKSI PEMBELIAN</a>
 			<div class="clearfix"></div>
 		</div>
 	</div>

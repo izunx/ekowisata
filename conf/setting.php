@@ -20,4 +20,15 @@ function q($query)
 		exit("database tidak terkoneksi");
 	}
 }
-?>
+function load($file)
+{
+	if(preg_match('~\.php$~', $file))
+	{
+		$file = substr($file, 0, -3);
+	}
+	ob_start('ob_gzhandler');
+	include($file.'.php');
+	$a = ob_get_contents();
+	ob_end_clean();
+	return $a;
+}
