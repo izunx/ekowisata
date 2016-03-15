@@ -5,18 +5,18 @@
     if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
     return true;
   }
+  
   $(document).ready(function() {
-    $('input:radio').click(function() {
-      if($(this).attr('id')=='radio2'){
-        $('#jml').removeClass('hidden').attr('required', true);
-      }else{
-        $('#jml').addClass('hidden').removeAttr('required');
-      }
-    });
-    $('input:radio#radio1').prop('checked', true).trigger('click');
+   $('input:radio').click(function() {
+    if($(this).attr('id')=='radio2'){
+      $('#jml').removeClass('hidden').attr('required', true);
+    }else{
+      $('#jml').addClass('hidden').removeAttr('required');
+    }
   });
+   $('input:radio#radio1').prop('checked', true).trigger('click');
+ });
 </script>
-
 
 <div class="container">
   <div class="panel panel-default">
@@ -41,14 +41,9 @@
             </td>
           </tr>
           <tr>
-            <td>TANGGAL MASUK</td>
+            <td>TANGGAL WISATA</td>
             <td>:</td>
-            <td><input type="text" name="tgl_m" class="form-control tanggal" required></td>
-          </tr>
-          <tr>
-            <td>TANGGAL KELUAR</td>
-            <td>:</td>
-            <td><input type="text" name="tgl_k" class="form-control tanggal" required></td>
+            <td><input type="text" name="jdwl" id="mulai" class="form-control tanggal" required></td>
           </tr>
           <tr>
             <td>PILIHAN PESAN</td>
@@ -59,7 +54,7 @@
             </td>
           </tr>
           <tr id="jml">
-            <td>JUMLAH</td>
+            <td>JUMLAH Maksimal 15</td>
             <td>:</td>
             <td><input type="text" name="jml" id="textfield" class="form-control"></td>
           </tr>
@@ -75,20 +70,21 @@
 </div>
 <?php
 if(isset($_POST['simpan'])){
+  $tgl_p = date("Y-m-d");
   $ids   = @intval($_GET['id']);
   $nm    = $_POST['nm'];
   $tlp   = $_POST['tlp'];
   $alm   = $_POST['almt'];
-  $tgl_m = $_POST['tgl_m'];
-  $tgl_k = $_POST['tgl_k'];
+  $tgl_w = $_POST['jdwl'];
   $pilih = $_POST['pilih'];
   $jml   = @$_POST['jml'];
   $add   = '';
   if(!empty($jml)){
     $add = "&jumlah=".$jml;
   }
-  $id     = mysqli_fetch_row(q("SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'ekowisata' AND   TABLE_NAME   = 'custemer'"))[0];
-  $tambah = q("insert into custemer(nama, tlp, alm, tgl_m, tgl_k, status) values ('$nm','$tlp','$alm','$tgl_m', '$tgl_k', '$pilih')");
+  $id     = mysqli_fetch_row(q("SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'ekowisata' AND   TABLE_NAME   = 'custemer'"))[0];
+  $tambah = q("insert into custemer(nama, tlp, alm, tgl_p, tgl_w, status) values ('$nm','$tlp','$alm','$tgl_p', '$tgl_w' + interval 1 day, '$pilih')");
   if($tambah){
     header("Location: ".$url."paket/view/".$id."?paket=".$ids.$add);
   }

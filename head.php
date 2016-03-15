@@ -49,3 +49,4 @@ ob_start('ob_gzhandler');
 <?php
 $head = ob_get_contents();
 ob_end_clean();
+?>

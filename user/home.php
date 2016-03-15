@@ -22,6 +22,9 @@ while($dpaket = mysqli_fetch_array($tpaket))
 		}
 	}
 }
+
+
+
 ?>
 <div class="container">
 	<div class="row">
@@ -32,7 +35,6 @@ while($dpaket = mysqli_fetch_array($tpaket))
 			{
 				?>
 				<div class="col-md-<?php echo $col; ?> gambar">
-					<!-- <a href="<?php echo $url; ?>paket/lihat/<?php echo $k; ?>"> -->
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -61,16 +63,31 @@ while($dpaket = mysqli_fetch_array($tpaket))
 						</div>
 						<div class="panel-footer">
 							<?php
-							echo 'Paket :'.$k;
+							$pesan = q("select COUNT(b.id_c) as pesan,b.paket,c.nama  from custemer a join pemesanan b on a.id=b.id_c 
+								join paket c on b.paket=c.id where a.tgl_k>=curdate() and b.paket='".$k."'
+								group by b.paket  ");
+							$data = mysqli_fetch_assoc($pesan);
+							$psn=$data['pesan'];
+							$paket=$data['paket'];
+							$nama=$data['nama'];
+							?>
+							Paket : <?php echo $k; ?>
+							jumlah pemesan : <?php echo $psn; ?> -15 orang
+							<?php
+							if($psn==15){
+								$stt="style='display:none;'";
+							}else{
+								$stt="";
+							}
 							?>
 							<div class="pull-right">
 								<a href="<?php echo $url; ?>paket/detail/<?php echo $k; ?>" class="btn btn-primary"> Detail</a>
-								<a href="<?php echo $url; ?>paket/pesan/<?php echo $k; ?>" class="btn btn-primary"> Pesan Sekarang</a>
+								<a href="<?php echo $url; ?>paket/pesan/<?php echo $k; ?>"  <?=$stt?> class="btn btn-primary"> Pesan Sekarang</a>
 							</div>
+							
 							<div class="clearfix"></div>
 						</div>
 					</div>
-					<!-- </a>			 -->
 				</div>
 				<?php
 			}

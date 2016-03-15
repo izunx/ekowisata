@@ -47,9 +47,14 @@ $jumlah = @intval($_GET['jumlah']);
           <td><?php echo $dcustemer['tgl_k']; ?></td>
         </tr>
         <tr>
-          <td style="font-weight: bold;">TANGGAL KELUAR</td>
+          <td style="font-weight: bold;">NAMA BIRO</td>
           <td>:</td>
-          <td><?php echo $dcustemer['tgl_k']; ?></td>
+          <td>EKOWISATA JEPARA</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">NO REKENING</td>
+          <td>:</td>
+          <td>5896-01-011735-53-3</td>
         </tr>
       </table>
     </div>
@@ -94,6 +99,7 @@ $jumlah = @intval($_GET['jumlah']);
           <?php
           $hrg += $dwisata['harga'];
         }
+        $hrg = @intval($hrg);
         ?>
       </table>
     </div>
@@ -120,6 +126,7 @@ $jumlah = @intval($_GET['jumlah']);
           $p = $dpenginapan['harga'];
           $no++;
         }
+        $p = @intval($p);
         ?>
       </table>
     </div>
@@ -147,12 +154,30 @@ $jumlah = @intval($_GET['jumlah']);
           $t = $dtransport['harga'];
           $no++;
         }
+        $t = @intval($t);
         ?>
       </table>
-    </div>
-    <hr>
-    <div style="background: #777; padding: 5px; color: #ccc; text-align: center; font-weight: bold; font-style: italic;">
-      <small>Ekowisata Jepara Berbasis Kearifan Lokal</small>
-    </div>
+      <?php
+      $add  = '';
+      $tmbh = $p + $t;
+      $akhr = $tmbh + $hrg;
+      if(!empty($jumlah))
+      {
+        $ttl = $akhr * $jumlah;
+        $add = '&jumlah='.$jumlah;
+      }else{
+        $ttl = $akhr;
+      }
+      ?>
+      <div style="width: 800px; margin-top: 30px;">
+       <table style="border:1px solid #000; width: inherit;">
+         <raight>TOTAL PEMBAYARAN : <b>Rp.&nbsp;<?php echo number_format($ttl, 0, '', '.'); ?></b></raight>
+       </table>
+     </div>
+   </div>
+   <hr>
+   <div style="background: #777; padding: 5px; color: #ccc; text-align: center; font-weight: bold; font-style: italic;">
+    <small>Ekowisata Berbasis Masyarakat Daerah Jepara Dengan Kearifan Lokal</small>
   </div>
+</div>
 </body>
